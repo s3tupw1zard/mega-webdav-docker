@@ -31,21 +31,21 @@ RUN apt-get update \
     && git clone https://github.com/meganz/MEGAcmd.git \
 
     # Obtain the repository recursively
-    && cd MEGAcmd && git submodule update --init --recursive \
+    && cd MEGAcmd && git submodule update --init --recursive
 
     # Building and installing MEGAcmd
-    && sh autogen.sh \
-    && ./configure \
-    && make \
-    && make install \
+RUN sh autogen.sh 
+RUN ./configure 
+RUN make 
+RUN make install 
 
     # Cleanup
-    && rm -r /tmp/MEGAcmd \
+RUN rm -r /tmp/MEGAcmd \
     && apt-get purge -y \
     && apt-get autoremove -y \
     && apt-get autoclean -y \
-
-
+    
+    # Create MEGA folder
     && mkdir /root/MEGA
 
 COPY entrypoint.sh /entrypoint.sh
