@@ -45,13 +45,10 @@ RUN make
 RUN make install
 
     # Cleanup
-RUN rm -r /tmp/ \
+RUN rm -r /tmp/* \
     && apt-get purge -y \
     && apt-get autoremove -y \
     && apt-get autoclean -y \
-    
-    # Create MEGA folder
-    && mkdir /root/MEGA
 
 COPY entrypoint.sh /entrypoint.sh
 
