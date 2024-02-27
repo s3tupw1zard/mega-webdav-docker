@@ -38,7 +38,7 @@ RUN apt update \
     # Building and installing MEGAcmd
 RUN sh autogen.sh
 
-RUN ./configure
+RUN ./configure --without-freeimage
 
 RUN make
 
