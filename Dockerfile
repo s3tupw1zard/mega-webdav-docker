@@ -28,14 +28,13 @@ RUN apt-get update \
     libzen-dev libuv1-dev -y \
 
     # Clone MEGAcmd Git Repository
-    && git clone https://github.com/meganz/MEGAcmd.git \
+    && git clone https://github.com/meganz/MEGAcmd.git .\
 
     # Obtain the repository recursively
-    && cd MEGAcmd && git submodule update --init --recursive
+    && git submodule update --init --recursive
 
     # Building and installing MEGAcmd
-RUN ls -l 
-#./autogen.sh
+RUN sh autogen.sh
 
 RUN ./configure
 
@@ -44,7 +43,7 @@ RUN make
 RUN make install
 
     # Cleanup
-RUN rm -r /tmp/MEGAcmd \
+RUN rm -r /tmp/ \
     && apt-get purge -y \
     && apt-get autoremove -y \
     && apt-get autoclean -y \
