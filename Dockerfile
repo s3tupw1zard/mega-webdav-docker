@@ -7,25 +7,27 @@ WORKDIR /tmp
 ENV SERVE_PATH=/
 ENV PORT=4443
 
-RUN apt-get update \
+RUN apt update \
 
     # Upgrade
-    && apt-get upgrade -y \
-    && apt-get dist-upgrade -y \
+    && apt upgrade -y \
+    && apt dist-upgrade -y \
 
     # Install dependencies
-    && apt-get install git -y \
+    && apt install git -y \
 
     # Download, Compile & Install MegaCMD
 
     # Install Dependencies
-    && apt-get install autoconf libtool g++ \
+    && apt install autoconf libtool g++ \
     libcrypto++-dev libz-dev libsqlite3-dev \
     libssl-dev libcurl4-gnutls-dev libreadline-dev \
     libpcre++-dev libsodium-dev libc-ares-dev \
     libfreeimage-dev libavcodec-dev libavutil-dev \
     libavformat-dev libswscale-dev libmediainfo-dev \
     libzen-dev libuv1-dev -y \
+
+    && apt install build-essential -y \
 
     # Clone MEGAcmd Git Repository
     && git clone https://github.com/meganz/MEGAcmd.git .\
