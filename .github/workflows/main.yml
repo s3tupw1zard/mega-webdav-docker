@@ -26,5 +26,6 @@ jobs:
           - name: 'Build Inventory Image'
             working-directory: .
             run: |
+              docker buildx create --name multiarchbuilder
               docker buildx build --platform linux/amd64,linux/arm64 --tag ghcr.io/s3tupw1zard/mega-webdav-docker:latest --push .
               docker buildx build --platform linux/amd64,linux/arm64 --tag ghcr.io/s3tupw1zard/mega-webdav-docker:$(date +'%Y-%m-%d') --push .
