@@ -48,7 +48,7 @@ RUN make install
 RUN rm -r /tmp/* \
     && apt-get purge -y \
     && apt-get autoremove -y \
-    && apt-get autoclean -y \
+    && apt-get autoclean -y
 
 COPY entrypoint.sh /entrypoint.sh
 
