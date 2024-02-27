@@ -34,10 +34,10 @@ RUN apt-get update \
     && cd MEGAcmd && git submodule update --init --recursive
 
     # Building and installing MEGAcmd
-RUN sh autogen.sh 
-RUN ./configure 
-RUN make 
-RUN make install 
+RUN ./autogen.sh
+RUN ./configure
+RUN make
+RUN make install
 
     # Cleanup
 RUN rm -r /tmp/MEGAcmd \
