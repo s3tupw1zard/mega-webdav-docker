@@ -29,6 +29,7 @@ RUN apt update \
 
     && apt install build-essential -y \
 
+
     # Clone MEGAcmd Git Repository
     && git clone https://github.com/meganz/MEGAcmd.git .\
 
